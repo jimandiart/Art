@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Jim & I Art Browser by Tardigradia",
+  "short_name": "jimandiart",
+  "version": "1.4",
+  "description": "Extracts, navigates, and intelligently auto-downloads Gemini search history.",
+  "author": "Jason Brodsky, www.JimandI.art, www.tardigradia.com",
+  "permissions": [
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
